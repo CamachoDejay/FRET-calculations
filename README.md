@@ -1,4 +1,7 @@
 # FRET-calculations
+
+NOTE: code will be released upon acceptance of the manuscript. For the moment please email to camachodejay@yahoo.com to get a local copy.
+
 This repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light.
 
 In the simulations we consider the presence of homo-FRET between GFP molecules.
