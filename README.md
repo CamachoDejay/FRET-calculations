@@ -1,8 +1,6 @@
 # FRET-calculations
 
-NOTE: code will be released on monday 12th of Feb. For the moment please email to camachodejay@yahoo.com to get a local copy.
-
-This repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light.
+This repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light. This simualtion is part of the manuscript entitled: 2D polarization imaging as a low-cost fluorescence method to detect α-synuclein aggregation ex vivo. By Rafael Camacho, Daniela Täuber, Christian Hansen, Juanzi Shi, Luc Bousset, Ronald Melki, Jia-Yi Li, and Ivan G. Scheblykin.
 
 In the simulations we consider the presence of homo-FRET between GFP molecules.
 The simulation pipeline can be seen as:
@@ -22,24 +20,19 @@ The simulation pipeline can be seen as:
 
 ### How do I get set up? ###
 
-* Summary of set up: This is a Matlab repository. Thus, you will need to have a local Matlab installation.
+* Summary of set up: This is a Matlab repository. Thus, you will need to have a local Matlab installation. To run the code just run the main function.
 * Configuration: NA.
 * Dependencies: NA.
-* Database configuration: NA.
-* How to run tests: explain simple simulations that should give known results.
-* Deployment instructions: NA.
 
 ### Contribution guidelines ###
 
-* Writing tests
-* Code review
-* Other guidelines
+* If you wish to contribute to this project please email the author.
 
 ### Who do I talk to? ###
 
 * If you ever encounter a problem feel free to contact the author [Website of the author](https://camachodejay.github.io/)
 
-* This repository, on its version v-1.0, was implemented in the article. For information related to the article feel free to reach the author and/or  [Prof. Ivan Scheblykin](http://www.chemphys.lu.se/research/groups/scheblykin-group/)
+* For information related to the article feel free to reach the author and/or  [Prof. Ivan Scheblykin](http://www.chemphys.lu.se/research/groups/scheblykin-group/)
 
 ## Detailed information about the code ##
 
@@ -103,6 +96,11 @@ here I'm planning to explain each step of the code if possible.
 here I'm planning to explain each step of the code if possible.
 
 ### POLIM calculation ###
-* small description. Add proper references to our papers.
 
-### Code example ###
+For a detailed explanation please follow the links below:
+
+* [Quantitative characterization of light-harvesting efficiency in single molecules and nanoparticles by 2D polarization microscopy: Experimental and theoretical challenges](https://www.sciencedirect.com/science/article/pii/S0301010412001000?via%3Dihub)
+
+* [Fluorescence polarization measures energy funneling in single light-harvesting antennas—LH2 vs conjugated polymers](https://www.nature.com/articles/srep15080)
+
+* [Polarization portraits of light-harvesting antennas: from single molecule spectroscopy to imaging](https://www.researchgate.net/publication/272357667_Polarization_portraits_of_light-harvesting_antennas_from_single_molecule_spectroscopy_to_imaging?channel=doi&linkId=54e31ef10cf2d618e195d3b1&showFulltext=true)
