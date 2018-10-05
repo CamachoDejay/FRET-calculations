@@ -82,6 +82,35 @@ FRETprops = homoFRET(absA,emD,wavelength,extCoefA,ri,QY,lifeD);
 
 % Forster Radius calculation
 ForRad = FRETprops.getFRadius;
+
+%% ATTO550 is not used in the symulations.Moreover, I calcualte the Förster
+% radius for comparison
+load('ATTO550SpecData.mat')
+% abs spec of the acceptor 
+absA = ATTO550(:,2); 
+% emission spec of the donoer
+emD  = ATTO550(:,3); 
+% common wavelength axis
+wavelength = ATTO550(:,1); % [nm] 
+% extinction coef of the acceptor at max abs
+extCoefA = 1.2e5;     % [mol^-1 cm^-1] 
+% These numbers are very important for the Forster equation as we have to
+% calculate the spectral overlap between dipoles.
+% refractive index
+ri = 1.4;       % aqueous solution
+% quantum yield of the donor
+QY    = 0.8;      % GFP emerald
+% lifetime of the donor
+lifeD  = 3.6;       % [ns] GFP 
+% creating the homoFRET object containing all the relevant FRET properties
+FRETpropsATTO = homoFRET(absA,emD,wavelength,extCoefA,ri,QY,lifeD);
+
+% Forster Radius calculation
+ForRadATTO = FRETpropsATTO.getFRadius;
+
+% print message
+fprintf('Förster Radius of GFP emerald in aqueous solution: %0.2f\n',ForRad)
+fprintf('Förster Radius of ATTO550 in aqueous solution: %0.2f\n',ForRadATTO)
 %% simulating polarization portraits
 % Properties of the polarization portrait to simulate
 %   excitation angles in degrees
