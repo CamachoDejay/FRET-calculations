@@ -1,6 +1,8 @@
 # FRET-calculations
 
-This repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light. This simualtion is part of the manuscript entitled: 2D polarization imaging as a low-cost fluorescence method to detect α-synuclein aggregation ex vivo. By Rafael Camacho, Daniela Täuber, Christian Hansen, Juanzi Shi, Luc Bousset, Ronald Melki, Jia-Yi Li, and Ivan G. Scheblykin.
+This repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light. This simulation is part of the manuscript entitled: [2D polarization imaging as a low-cost fluorescence method to detect α-synuclein aggregation ex vivo in models of Parkinson’s disease.](https://www.nature.com/articles/s42003-018-0156-x) By Rafael Camacho, Daniela Täuber, Christian Hansen, Juanzi Shi, Luc Bousset, Ronald Melki, Jia-Yi Li, and Ivan G. Scheblykin. 
+
+![SimFig](https://media.springernature.com/lw900/springer-static/image/art%3A10.1038%2Fs42003-018-0156-x/MediaObjects/42003_2018_156_Fig1_HTML.png)
 
 In the simulations we consider the presence of homo-FRET between GFP molecules.
 The simulation pipeline can be seen as:
@@ -15,7 +17,7 @@ The simulation pipeline can be seen as:
 3. Calculation of the POLIM output from the polarization portrait
 
 
-* Version beta-01
+* Version release-01, as used in the article.
 * [Website of the author](https://camachodejay.github.io/)
 
 ### How do I get set up? ###
