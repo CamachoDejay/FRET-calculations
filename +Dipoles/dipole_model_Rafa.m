@@ -1,18 +1,13 @@
-% based on dipole_model written by Rafael Camacho 2017
-% extended by Daniela Taeuber for real biomaterial geometries 2019-06
 classdef dipole_model
     % DIPOLE_MODEL Object that contains the positions, orientations and
     % transfer matrix of all dipoles in the model system. The list of
     % positions contains a central dipole in the origin surrounded by a
-    % large number of buffer dipoles in a lattice set by the geometry of 
-    % an f-actin fiber or by a cubic lattice.
-    % In general all dipoles are randomly oriented. However, for the
-    % f-actin fiber, they are oriented at fixed angles parallel to the 
-    % radius from the fiber axis
-    % There is the option of replacing the monomer sites by a dimer.
-    %   TODO geometry of f-actin fiber
+    % large number of buffer dipoles in a cubic lattice. All dipoles are
+    % randomly oriented. There is the option of replacing the monomer sites
+    % by a dimer.
+    %   TODO
 
-    properties (SetAccess = protected) %access from class or subclass
+    properties (SetAccess = protected)
         distance_model
         buffer
         buffer_used
@@ -26,7 +21,6 @@ classdef dipole_model
 % object constructor
         function obj = dipole_model(dist_model, buffer)
             % distance model must be a string: 1D model 2D model 3D model
-            % or f-actin
             if isa(dist_model,'char')
                 % input is a string
                 switch dist_model
@@ -36,11 +30,9 @@ classdef dipole_model
                         disp('2D model')
                     case '3D'
                         disp('3D model')
-                    case 'factin'
-                        disp('single f-actin fiber')
                     otherwise
                         error(['Unknown distance model, '...
-                               'input must be 1D 2D 3D or factin, ',...
+                               'input must be 1D 2D or 3D, ',...
                                'you entered ' dist_model])
                 end
             else
@@ -88,8 +80,6 @@ classdef dipole_model
             cube.x_radius = 0; % [nm]
             cube.y_radius = 0; % [nm]
             cube.z_radius = 0; % [nm]
-            cylinder.z_length = 0; % [nm]
-            cylinder.radius = 0; % [nm]
 
             % now the dimentions of the lattice are changed depending on
             % the distance_model
@@ -112,24 +102,13 @@ classdef dipole_model
                     cube.x_radius = d2use;
                     cube.y_radius = d2use;
                     cube.z_radius = d2use;
-                 case 'factin' %buffer dipoles placed on the coat of a cylinder of length fiber_length
-                    d_sugested = (((max_n_dipoles)-1)/3) * inter_dist; %Todo!
-                    d_sugested = round((d_sugested / 2)*1.1,1);
-                    d2use = min([obj.buffer.max_size,d_sugested]);
-                    cylinder.z_length = d2use;
-                    cylinder.radius = d2use;
                 otherwise
                     error('Unexpected error')
             end
-            
-            switch obj.distance_model
-              case 'factin' %buffer dipoles placed on the coat of a cylinder of length fiber_length
-               pos = get_pos_actinfiber( cylinder, inter_dist );   
-              otherwise
+
             % get positions in a cubic lattice: equidistant and centered
             % around 0
             pos = get_pos_cubic_lattice( cube, inter_dist );
-            end
             
             % now we replace some of the monomer sites by dimers
             %   distance between the chromophores in the dimer
@@ -141,19 +120,11 @@ classdef dipole_model
             % y:0)
             pos_magnitude = (sum(pos.*pos)).^(.5);
 
-            % correct positions and sort dimers
-             switch obj.distance_model
-              case 'factin' %buffer dipoles placed on the coat of a cylinder of length fiber_length
-               pos = get_pos_actinfiber( cylinder, inter_dist );   
-                 otherwise
-                % find the distance between the dipoles and the origin (x:0,
-                % y:0)
-                    pos_magnitude = (sum(pos.*pos)).^(.5);
-                % remove positions that are larger than the desired radious
-                    good_pos  = pos_magnitude <= cube.x_radius;
-                    pos = pos(:,good_pos);
-                    pos_magnitude = pos_magnitude (good_pos);
-             
+            % remove positions that are larger than the desired radious
+            good_pos  = pos_magnitude <= cube.x_radius;
+            pos = pos(:,good_pos);
+            pos_magnitude = pos_magnitude (good_pos);
+            
             % the generation of dimers might displace the central dipole by
             % spliting it into a dimmer. Thus I have to move the reference
             % system to make it 0 0 0 again;
@@ -190,7 +161,7 @@ classdef dipole_model
             assert(c_dip(1),'Unexpected central dipole')
             obj.central_dipole = c_dip;
 %             disp(['Number of dipoles: ' num2str(size(pos,2))])
-             end
+
         end
 
         function obj = get_orientations(obj,sigma)

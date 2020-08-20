@@ -1,6 +1,14 @@
-# FRET-calculations
+# FRET-calculations for Live2DPOLIM
 
-This repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light. This simualtion is part of the manuscript entitled: 2D polarization imaging as a low-cost fluorescence method to detect α-synuclein aggregation ex vivo. By Rafael Camacho, Daniela Täuber, Christian Hansen, Juanzi Shi, Luc Bousset, Ronald Melki, Jia-Yi Li, and Ivan G. Scheblykin.
+This repository was cloned from CamachoDejay/FRET-calculations
+Here in the clone we work on implementing further functionalities for addressing differnt experimental conditions.
+
+The first task is to implement the geometry for histological labeling of f-actin.
+Contributor to this new task so far has been Daniela Täuber.
+
+-------------------------------------------------------------------------------------
+# README text from CamachoDejay/FRET-calculations:
+The CamachoDejay/FRET-calculations repository contains the code necessary to simulate the fluorescence emission of an anisotropic ensemble of GFP molecules when excited by polarized light. This simualtion is part of the manuscript entitled: 2D polarization imaging as a low-cost fluorescence method to detect α-synuclein aggregation ex vivo. By Rafael Camacho, Daniela Täuber, Christian Hansen, Juanzi Shi, Luc Bousset, Ronald Melki, Jia-Yi Li, and Ivan G. Scheblykin.
 
 In the simulations we consider the presence of homo-FRET between GFP molecules.
 The simulation pipeline can be seen as:
